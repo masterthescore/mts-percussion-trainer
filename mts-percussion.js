@@ -361,7 +361,7 @@ function _mkSt() {
 }
 
 function _renderShell() {
-  _root.innerHTML = "<div class=\"header\">\n    <div class=\"logo\">\n      <div class=\"logo-mark\"><span>MTS</span></div>\n      <span class=\"logo-text\">Percussion Trainer</span>\n    </div>\n    <span class=\"badge-sm\">Cinematic Series</span>\n  </div>\n  <div class=\"curriculum\" id=\"curriculum\"></div>\n  <div class=\"phase-bar\">\n    <div class=\"ps ps-a\" id=\"ph0\"><span class=\"ps-n\">00</span><span class=\"ps-l\">WATCH</span></div>\n    <div class=\"ps\" id=\"ph1\"><span class=\"ps-n\">01</span><span class=\"ps-l\">LISTEN</span></div>\n    <div class=\"ps\" id=\"ph2\"><span class=\"ps-n\">02</span><span class=\"ps-l\">BUILD</span></div>\n    <div class=\"ps\" id=\"ph3\"><span class=\"ps-n\">03</span><span class=\"ps-l\">CHECK</span></div>\n    <div class=\"ps\" id=\"ph4\"><span class=\"ps-n\">04</span><span class=\"ps-l\">REFINE</span></div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div class=\"sec-label\">\n      <span class=\"sec-t\">Lesson</span>\n      <span class=\"sbadge sb-w\" id=\"lesson-badge\">\u2014</span>\n      <div class=\"sec-line\"></div>\n      <span style=\"font-size:10px;color:var(--txt3);\" id=\"level-badge\"></span>\n    </div>\n    <div class=\"glass\" style=\"padding:16px;\">\n      <div class=\"vid-ph\">\n        <div style=\"font-size:32px;opacity:0.18;color:var(--g);\">\u25b6</div>\n        <div style=\"font-size:12px;color:var(--txt3);letter-spacing:0.1em;\">Spotlightr Video</div>\n        <div style=\"font-size:10px;color:rgba(194,166,103,0.3);font-family:monospace;margin-top:3px;\" id=\"vid-id\">\u2014</div>\n      </div>\n      <div style=\"display:flex;justify-content:space-between;margin-top:9px;align-items:center;\">\n        <span style=\"font-size:10px;color:var(--txt2);font-variant-numeric:tabular-nums;\" id=\"vp-pct\">0% watched</span>\n        <span style=\"font-size:10px;\" id=\"vp-hint\">Watch 80% to continue</span>\n      </div>\n      <div class=\"vp-bar\"><div class=\"vp-fill\" id=\"vp-fill\" style=\"width:0%\"></div></div>\n      <div style=\"margin-top:11px;display:flex;align-items:center;gap:12px;padding-left:16px;\">\n        <button class=\"tbtn primary\" id=\"btn-sim\">\u25b6 Play Video (Demo)</button>\n        <span style=\"font-size:10px;color:var(--txt3);\">Production: real Spotlightr player here</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"glass ctrl-p\" style=\"margin-bottom:16px;\">\n    <div class=\"cg\"><span class=\"cl\">BPM</span>\n      <input type=\"range\" id=\"bpm\" min=\"40\" max=\"200\" value=\"80\" step=\"1\" style=\"width:76px;\">\n      <span class=\"bv\" id=\"bv\">80</span>\n    </div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Subdivision</span><span id=\"sub-d\" style=\"font-size:12px;color:var(--txt);font-weight:500;\">\u2014</span></div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Bars</span><span id=\"bar-d\" style=\"font-size:12px;color:var(--txt);font-weight:500;\">\u2014</span></div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Check Mode</span>\n      <button class=\"co-btn sel\" id=\"co-r\">Rhythm</button>\n      <button class=\"co-btn\" id=\"co-v\">+ Velocity</button>\n    </div>\n    <div style=\"margin-left:auto;display:flex;gap:8px;\">\n      <button class=\"tbtn secondary\" id=\"btn-midi\">\u2193 MIDI</button>\n      <button class=\"tbtn dng\" id=\"btn-reset\">\u21ba Reset</button>\n    </div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-left:16px;flex-wrap:wrap;\">\n      <button class=\"tbtn primary\" id=\"btn-listen\">\u25b6 Listen</button>\n      <span class=\"sbadge sb-l\" id=\"ref-badge\">Hidden</span>\n      <span style=\"font-size:10px;color:var(--txt3);\" id=\"play-ct\"></span>\n    </div>\n    <div class=\"glass\" style=\"position:relative;\">\n      <div class=\"grid-s\"><div class=\"snums\" id=\"ref-nums\"></div><div id=\"ref-rows\"></div></div>\n      <div class=\"rmask\" id=\"rmask\">\n        <div class=\"rmask-icon\">\u25c9</div>\n        <div class=\"rmask-txt\">Pattern hidden<br><span style=\"font-size:11px;color:rgba(255,255,255,0.28);\">Watch the lesson \u2014 then listen</span></div>\n      </div>\n    </div>\n  </div>\n  <div style=\"display:flex;align-items:center;gap:14px;margin:20px 0 18px;\">\n    <div class=\"gold-divider\" style=\"flex:1;height:1px;\"></div>\n    <span style=\"font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(194,166,103,0.35);padding:0 4px;\">Exercise</span>\n    <div class=\"gold-divider\" style=\"flex:1;height:1px;\"></div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-left:16px;flex-wrap:wrap;\">\n      <button class=\"tbtn primary\" id=\"btn-build\" disabled style=\"opacity:0.35;cursor:not-allowed;\">\u2192 Start Building</button>\n      <span class=\"sbadge sb-b\" id=\"build-badge\">Waiting...</span>\n      <div id=\"stu-strip\" style=\"display:none;gap:8px;align-items:center;display:none;\">\n        <span style=\"width:1px;height:18px;background:var(--bdr);display:inline-block;\"></span>\n        <button class=\"tbtn secondary\" id=\"btn-sp\">\u25b6 Play</button>\n        <button class=\"tbtn act-s\" id=\"btn-ss\" style=\"display:none;\">\u25a0 Stop</button>\n        <button class=\"tbtn dng\" id=\"btn-clear-stu\">\u2715 Clear</button>\n        <button class=\"tbtn primary\" id=\"btn-check\">\u2713 Check</button>\n      </div>\n    </div>\n    <div class=\"glass glass-gold\" id=\"stu-sec\" style=\"opacity:0.32;pointer-events:none;\">\n      <div class=\"grid-s\"><div class=\"snums\" id=\"stu-nums\"></div><div id=\"stu-rows\"></div></div>\n    </div>\n  </div>\n  <div class=\"glass glass-green score-p\" id=\"score-p\">\n    <div><div class=\"sc-big\" id=\"sc-tot\">\u2014</div><div class=\"sc-lbl\">Score</div></div>\n    <div id=\"sc-bd\" style=\"display:flex;gap:18px;flex-wrap:wrap;align-items:center;\"></div>\n    <div style=\"margin-left:auto;display:flex;flex-direction:column;gap:7px;align-items:flex-end;\">\n      <button class=\"tbtn primary\" id=\"btn-reveal\">\u25c9 Reveal &amp; Refine</button>\n      <div class=\"unlock-b\" id=\"unlock-b\">\ud83c\udfaf Next lesson unlocked!</div>\n    </div>\n  </div>";
+  _root.innerHTML = "<div class=\"header\">\n    <div class=\"logo\">\n      <div class=\"logo-mark\"><span>MTS</span></div>\n      <span class=\"logo-text\">Percussion Trainer</span>\n    </div>\n    <span class=\"badge-sm\">Cinematic Series</span>\n  </div>\n  <div class=\"phase-bar\">\n    <div class=\"ps ps-a\" id=\"ph0\"><span class=\"ps-n\">00</span><span class=\"ps-l\">WATCH</span></div>\n    <div class=\"ps\" id=\"ph1\"><span class=\"ps-n\">01</span><span class=\"ps-l\">LISTEN</span></div>\n    <div class=\"ps\" id=\"ph2\"><span class=\"ps-n\">02</span><span class=\"ps-l\">BUILD</span></div>\n    <div class=\"ps\" id=\"ph3\"><span class=\"ps-n\">03</span><span class=\"ps-l\">CHECK</span></div>\n    <div class=\"ps\" id=\"ph4\"><span class=\"ps-n\">04</span><span class=\"ps-l\">REFINE</span></div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div class=\"sec-label\">\n      <span class=\"sec-t\">Lesson</span>\n      <span class=\"sbadge sb-w\" id=\"lesson-badge\">\u2014</span>\n      <div class=\"sec-line\"></div>\n      <span style=\"font-size:10px;color:var(--txt3);\" id=\"level-badge\"></span>\n    </div>\n    <div class=\"glass\" style=\"padding:16px;\">\n      <div id=\"vid-wrap\" style=\"position:relative;width:100%;padding-bottom:56.25%;border-radius:8px;overflow:hidden;background:#000;\">\n        <div id=\"vid-empty\" style=\"position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;\">\n          <div style=\"font-size:32px;opacity:0.18;color:var(--g);\">\u25b6</div>\n          <div style=\"font-size:12px;color:var(--txt3);letter-spacing:0.1em;\">No video for this lesson</div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"glass ctrl-p\" style=\"margin-bottom:16px;\">\n    <div class=\"cg\"><span class=\"cl\">BPM</span>\n      <input type=\"range\" id=\"bpm\" min=\"40\" max=\"200\" value=\"80\" step=\"1\" style=\"width:76px;\">\n      <span class=\"bv\" id=\"bv\">80</span>\n    </div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Subdivision</span><span id=\"sub-d\" style=\"font-size:12px;color:var(--txt);font-weight:500;\">\u2014</span></div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Bars</span><span id=\"bar-d\" style=\"font-size:12px;color:var(--txt);font-weight:500;\">\u2014</span></div>\n    <div class=\"sep\"></div>\n    <div class=\"cg\"><span class=\"cl\">Check Mode</span>\n      <button class=\"co-btn sel\" id=\"co-r\">Rhythm</button>\n      <button class=\"co-btn\" id=\"co-v\">+ Velocity</button>\n    </div>\n    <div style=\"margin-left:auto;display:flex;gap:8px;\">\n      <button class=\"tbtn secondary\" id=\"btn-midi\">\u2193 MIDI</button>\n      <button class=\"tbtn dng\" id=\"btn-reset\">\u21ba Reset</button>\n    </div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-left:16px;flex-wrap:wrap;\">\n      <button class=\"tbtn primary\" id=\"btn-listen\">\u25b6 Listen</button>\n      <span class=\"sbadge sb-l\" id=\"ref-badge\">Hidden</span>\n      <span style=\"font-size:10px;color:var(--txt3);\" id=\"play-ct\"></span>\n    </div>\n    <div class=\"glass\" style=\"position:relative;\">\n      <div class=\"grid-s\"><div class=\"snums\" id=\"ref-nums\"></div><div id=\"ref-rows\"></div></div>\n      <div class=\"rmask\" id=\"rmask\">\n        <div class=\"rmask-icon\">\u25c9</div>\n        <div class=\"rmask-txt\">Pattern hidden<br><span style=\"font-size:11px;color:rgba(255,255,255,0.28);\">Watch the lesson \u2014 then listen</span></div>\n      </div>\n    </div>\n  </div>\n  <div style=\"display:flex;align-items:center;gap:14px;margin:20px 0 18px;\">\n    <div class=\"gold-divider\" style=\"flex:1;height:1px;\"></div>\n    <span style=\"font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(194,166,103,0.35);padding:0 4px;\">Exercise</span>\n    <div class=\"gold-divider\" style=\"flex:1;height:1px;\"></div>\n  </div>\n  <div style=\"margin-bottom:16px;\">\n    <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-left:16px;flex-wrap:wrap;\">\n      <button class=\"tbtn primary\" id=\"btn-build\" disabled style=\"opacity:0.35;cursor:not-allowed;\">\u2192 Start Building</button>\n      <span class=\"sbadge sb-b\" id=\"build-badge\">Waiting...</span>\n      <div id=\"stu-strip\" style=\"display:none;gap:8px;align-items:center;display:none;\">\n        <span style=\"width:1px;height:18px;background:var(--bdr);display:inline-block;\"></span>\n        <button class=\"tbtn secondary\" id=\"btn-sp\">\u25b6 Play</button>\n        <button class=\"tbtn act-s\" id=\"btn-ss\" style=\"display:none;\">\u25a0 Stop</button>\n        <button class=\"tbtn dng\" id=\"btn-clear-stu\">\u2715 Clear</button>\n        <button class=\"tbtn primary\" id=\"btn-check\">\u2713 Check</button>\n      </div>\n    </div>\n    <div class=\"glass glass-gold\" id=\"stu-sec\" style=\"opacity:0.32;pointer-events:none;\">\n      <div class=\"grid-s\"><div class=\"snums\" id=\"stu-nums\"></div><div id=\"stu-rows\"></div></div>\n    </div>\n  </div>\n  <div class=\"glass glass-green score-p\" id=\"score-p\">\n    <div><div class=\"sc-big\" id=\"sc-tot\">\u2014</div><div class=\"sc-lbl\">Score</div></div>\n    <div id=\"sc-bd\" style=\"display:flex;gap:18px;flex-wrap:wrap;align-items:center;\"></div>\n    <div style=\"margin-left:auto;display:flex;flex-direction:column;gap:7px;align-items:flex-end;\">\n      <button class=\"tbtn primary\" id=\"btn-reveal\">\u25c9 Reveal &amp; Refine</button>\n      <div class=\"unlock-b\" id=\"unlock-b\">\ud83c\udfaf Next lesson unlocked!</div>\n    </div>\n  </div>";
 }
 
 function _buildNums(id) {
@@ -453,7 +453,7 @@ function _loadLesson(idx) {
   var barEl = _root.querySelector('#bar-d'); if (barEl) barEl.textContent = _cur.bars;
   var lbEl  = _root.querySelector('#lesson-badge'); if (lbEl) lbEl.textContent = _cur.title;
   var lvEl  = _root.querySelector('#level-badge');  if (lvEl) lvEl.textContent = 'Level '+_cur.level+'  ·  Pass: '+_cur.pass+'%';
-  var vidEl = _root.querySelector('#vid-id');       if (vidEl) vidEl.textContent = 'Video ID: ' + _cur.vid;
+  _renderVideo(_cur.vid);
 
   _refSt = {};
   _arows.forEach(function(r) {
@@ -480,14 +480,55 @@ function _loadLesson(idx) {
   var scoreP  = _root.querySelector('#score-p');     if (scoreP) scoreP.classList.remove('vis');
   var unlockB = _root.querySelector('#unlock-b');    if (unlockB) unlockB.classList.remove('vis');
   var btnChk  = _root.querySelector('#btn-check');   if (btnChk) btnChk.textContent='✓ Check';
-  var btnSim  = _root.querySelector('#btn-sim');     if (btnSim) btnSim.textContent='▶ Play Video (Demo)';
-  var vph     = _root.querySelector('#vp-hint');     if (vph) { vph.textContent='Watch '+_cur.unlock+'% to continue'; vph.style.color='rgba(194,166,103,0.5)'; }
   _showSP(false);
 
   _buildNums('ref-nums'); _buildNums('stu-nums');
   _buildGrid('ref-rows', _refSt, false, true);
   _buildGrid('stu-rows', _stuSt, false, false);
   _buildCurUI();
+}
+
+// ─────────────────────────────────────────────
+// VIDEO RENDERING (real Spotlightr iframe)
+// ─────────────────────────────────────────────
+// Accepts either a bare Spotlightr ID (e.g. "MTk5MDQ3Mw==") or a full
+// watch URL / full <iframe...> embed. Renders a responsive player into
+// #vid-wrap. Empty/missing value → shows the "no video" placeholder.
+function _renderVideo(v) {
+  var wrap = _root.querySelector('#vid-wrap');
+  if (!wrap) return;
+  var empty = _root.querySelector('#vid-empty');
+
+  // Remove any previously injected iframe
+  var old = wrap.querySelector('iframe'); if (old) old.parentNode.removeChild(old);
+
+  if (!v) { if (empty) empty.style.display = 'flex'; return; }
+  if (empty) empty.style.display = 'none';
+
+  var src;
+  var s = String(v).trim();
+  if (s.indexOf('<iframe') !== -1) {
+    // A full embed snippet was stored — pull the src out of it.
+    var m = s.match(/src=["']([^"']+)["']/);
+    src = m ? m[1] : '';
+  } else if (s.indexOf('http') === 0) {
+    src = s;                                  // already a full URL
+  } else {
+    // Bare Spotlightr ID → build the standard watch URL.
+    src = 'https://videos.cdn.spotlightr.com/watch/' + s + '?fallback=true';
+  }
+  if (!src) { if (empty) empty.style.display = 'flex'; return; }
+
+  var ifr = document.createElement('iframe');
+  ifr.src = src;
+  ifr.allow = 'autoplay';
+  ifr.allowFullscreen = true;
+  ifr.setAttribute('allowtransparency', 'true');
+  ifr.setAttribute('scrolling', 'no');
+  ifr.setAttribute('frameborder', '0');
+  ifr.setAttribute('name', 'videoPlayer');
+  ifr.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+  wrap.appendChild(ifr);
 }
 
 // ─────────────────────────────────────────────
@@ -668,7 +709,6 @@ function _bindEvents() {
   on('#btn-check', 'click', _doCheck);
   on('#btn-reveal', 'click', _doReveal);
   on('#btn-clear-stu', 'click', _clearStu);
-  on('#btn-sim', 'click', _simVideo);
   on('#btn-midi', 'click', _exportMIDI);
 
   on('#btn-reset', 'click', function() {
@@ -721,7 +761,7 @@ var MTSPercussion = {
     // Self-render the UI shell if the container is empty (e.g. a bare
     // <div id="mts-trainer"></div> embed). If a full shell was pasted
     // manually, leave it untouched (backwards compatible).
-    if (!_root.querySelector('#curriculum')) {
+    if (!_root.querySelector('#bpm')) {
       _renderShell();
     }
 

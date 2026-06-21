@@ -4,8 +4,9 @@
  *
  * Design: Deep Cinema background + warm frosted glass (v0.dev + MTS brand)
  * Brand colors: --gold #c2a667 / --gold-bright #ecdaa9
- * Includes: responsive breakpoints (tablet/mobile) + touch support
+ * Background: cinematic gradient (warm key light + cool fill + vignette)
  */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -23,7 +24,6 @@
 }
 
 body{
-  overflow-x:hidden;
   font-family:'Inter','Geist Sans','Segoe UI',sans-serif;
   color:var(--foreground);
   min-height:100vh;
@@ -35,7 +35,7 @@ body{
     linear-gradient(180deg,#08080d 0%,#06060a 45%,#050509 100%);
   background-attachment:fixed;
 }
-.root{padding:24px 32px 48px;max-width:1200px;margin:0 auto;}
+.root{padding:24px 32px 48px;max-width:1600px;margin:0 auto;}
 
 /* GLASS — from v0 globals.css */
 .glass{
@@ -258,8 +258,7 @@ input[type=range]{accent-color:var(--g);cursor:pointer;}
   border:1px solid rgba(255,255,255,0.05);
   background:rgba(0,0,0,0.3);
   cursor:pointer;position:relative;overflow:hidden;
-  transition:all 0.1s;user-select:none;-webkit-user-select:none;
-  touch-action:none;
+  transition:all 0.1s;user-select:none;
   box-shadow:inset 0 2px 4px rgba(0,0,0,0.4);
 }
 .cell:hover:not(.locked){border-color:rgba(236,216,169,0.16);background:rgba(255,255,255,0.04);}
@@ -320,87 +319,3 @@ input[type=range]{accent-color:var(--g);cursor:pointer;}
 }
 .unlock-b.vis{display:block;}
 .tstrip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-
-/* ═══════════════════════════════════════════════
-   RESPONSIVE — Tablet & Mobile
-   ═══════════════════════════════════════════════ */
-
-/* TABLET — up to 900px */
-@media (max-width: 900px) {
-  .root { padding: 18px 18px 36px; }
-  .grid-s { padding: 13px 14px 14px; }
-  .snums { padding-left: 64px; }
-  .rl { width: 60px; min-width: 60px; padding-right: 8px; }
-  .rdiv { margin-left: 60px; }
-  .rn { font-size: 10px; }
-  .rs { font-size: 8px; }
-  .ps { padding: 10px 8px; }
-  .ps-l { font-size: 10px; }
-  .sc-big { font-size: 40px; }
-}
-
-/* MOBILE — up to 600px */
-@media (max-width: 600px) {
-  .root { padding: 14px 12px 30px; }
-
-  /* Header — smaller logo */
-  .logo-text { font-size: 11px; letter-spacing: 0.16em; }
-  .logo-mark { width: 32px; height: 32px; }
-
-  /* Phase bar — compact, numbers only emphasis */
-  .phase-bar { border-radius: 10px; }
-  .ps { padding: 8px 4px; gap: 1px; }
-  .ps-n { font-size: 7px; }
-  .ps-l { font-size: 8px; letter-spacing: 0.02em; }
-
-  /* Controls — stack vertically, full width groups */
-  .ctrl-p { padding: 10px 12px; gap: 8px; }
-  .ctrl-p .sep { display: none; }
-  .cg { gap: 5px; }
-  .cl { font-size: 9px; }
-
-  /* Grid — minimize row labels, maximize cell space */
-  .grid-s { padding: 10px 8px 12px; }
-  .snums { padding-left: 44px; }
-  .rl { width: 42px; min-width: 42px; padding-right: 5px; }
-  .rdiv { margin-left: 42px; }
-  .rn { font-size: 8px; letter-spacing: 0.06em; }
-  .rs { display: none; }  /* hide sub-labels on mobile */
-  .cells { gap: 2px; }
-  .cell { border-radius: 4px; }
-
-  /* Buttons — slightly smaller */
-  .tbtn { padding: 7px 13px; font-size: 11px; }
-  .tbtn.primary { padding: 8px 16px; font-size: 12px; }
-
-  /* Score panel — stack */
-  .score-p { padding: 13px 14px; gap: 12px; }
-  .sc-big { font-size: 36px; }
-  .sc-val { font-size: 14px; }
-
-  /* Video play row — wrap nicely */
-  .vid-ph { border-radius: 9px; }
-
-  /* Section button rows — reduce left padding */
-  .grid-s, [style*="padding-left:16px"] { }
-}
-
-/* SMALL MOBILE — up to 400px */
-@media (max-width: 400px) {
-  .snums { padding-left: 38px; }
-  .rl { width: 36px; min-width: 36px; }
-  .rdiv { margin-left: 36px; }
-  .rn { font-size: 7px; }
-  .ps-l { font-size: 7px; }
-  .cells { gap: 1.5px; }
-}
-
-/* TOUCH — larger tap targets, no hover artifacts */
-@media (hover: none) and (pointer: coarse) {
-  .cell { min-height: 0; }  /* aspect-ratio handles size */
-  .tbtn { padding: 9px 16px; }  /* bigger tap target */
-  .co-btn { padding: 6px 12px; }
-  .lchip { padding: 10px 14px; }
-  /* prevent text selection during drag */
-  .cell, .ps, .tbtn, .co-btn, .lchip { -webkit-tap-highlight-color: transparent; }
-}
